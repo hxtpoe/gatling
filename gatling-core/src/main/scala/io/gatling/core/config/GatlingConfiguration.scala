@@ -153,6 +153,7 @@ object GatlingConfiguration extends StrictLogging {
         fetchedCssCacheMaxCapacity = config.getLong(http.FetchedCssCacheMaxCapacity),
         fetchedHtmlCacheMaxCapacity = config.getLong(http.FetchedHtmlCacheMaxCapacity),
         perUserCacheMaxCapacity = config.getInt(http.PerUserCacheMaxCapacity),
+        prefixHttpNamesWithMethod = config.getBoolean(http.PrefixHttpNamesWithMethod),
         warmUpUrl = config.getString(http.WarmUpUrl).trimToOption,
         enableGA = config.getBoolean(http.EnableGA),
         ssl = {
@@ -319,14 +320,15 @@ case class IndicatorsConfiguration(
 )
 
 case class HttpConfiguration(
-  fetchedCssCacheMaxCapacity:  Long,
-  fetchedHtmlCacheMaxCapacity: Long,
-  perUserCacheMaxCapacity:     Int,
-  warmUpUrl:                   Option[String],
-  enableGA:                    Boolean,
-  ssl:                         SslConfiguration,
-  ahc:                         AhcConfiguration,
-  dns:                         DnsConfiguration
+                              fetchedCssCacheMaxCapacity:  Long,
+                              fetchedHtmlCacheMaxCapacity: Long,
+                              perUserCacheMaxCapacity:     Int,
+                              warmUpUrl:                   Option[String],
+                              enableGA:                    Boolean,
+                              prefixHttpNamesWithMethod:   Boolean,
+                              ssl:                         SslConfiguration,
+                              ahc:                         AhcConfiguration,
+                              dns:                         DnsConfiguration
 )
 
 case class JmsConfiguration(

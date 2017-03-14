@@ -156,7 +156,7 @@ case class HttpRequestBuilder(commonAttributes: CommonAttributes, httpAttributes
     val resolvedDiscardResponseChunks = httpAttributes.discardResponseChunks && httpProtocol.responsePart.discardResponseChunks
 
     HttpRequestDef(
-      commonAttributes.requestName,
+      if (coreComponents.configuration.http.prefixHttpNamesWithMethod) { StaticStringExpression(s"[${commonAttributes.method}] ${commonAttributes.requestName}") } else {commonAttributes.requestName},
       resolvedRequestExpression,
       HttpRequestConfig(
         checks = resolvedChecks,
