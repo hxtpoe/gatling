@@ -153,9 +153,9 @@ object GatlingConfiguration extends StrictLogging {
         fetchedCssCacheMaxCapacity = config.getLong(http.FetchedCssCacheMaxCapacity),
         fetchedHtmlCacheMaxCapacity = config.getLong(http.FetchedHtmlCacheMaxCapacity),
         perUserCacheMaxCapacity = config.getInt(http.PerUserCacheMaxCapacity),
-        prefixHttpNamesWithMethod = config.getBoolean(http.PrefixHttpNamesWithMethod),
         warmUpUrl = config.getString(http.WarmUpUrl).trimToOption,
         enableGA = config.getBoolean(http.EnableGA),
+        prefixHttpNamesWithMethod = config.getBoolean(http.PrefixHttpNamesWithMethod),
         ssl = {
             def storeConfig(typeKey: String, fileKey: String, passwordKey: String, algorithmKey: String) = {
 
